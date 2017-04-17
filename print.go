@@ -27,10 +27,11 @@ type OutMsg struct {
 }
 
 func infoPrintln(id int, args ...interface{}) {
-	stdout <- OutMsg{id, strings.TrimSpace(fmt.Sprintln(args...))}
+	//stdout <- OutMsg{id, strings.TrimSpace(fmt.Sprintln(args...))}
+	stdout <- OutMsg{id, "\033c"}
 }
 func infoPrintf(id int, format string, args ...interface{}) {
-	stdout <- OutMsg{id, fmt.Sprintf(format, args...)}
+	//stdout <- OutMsg{id, fmt.Sprintf(format, args...)}
 }
 
 func printMsg(msg OutMsg, writer io.Writer) {
